@@ -1,4 +1,4 @@
-package com.example.hellot2010aagain.controller;
+package com.t2010a.hellot2010aagain.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
