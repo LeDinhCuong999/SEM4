@@ -21,4 +21,40 @@
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateStudentServlet</servlet-name>
+        <servlet-class>com.t2010a.hellot2010aagain.controller.student.CreateStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateStudentServlet</servlet-name>
+        <url-pattern>/admin/students/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListStudentServlet</servlet-name>
+        <servlet-class>com.t2010a.hellot2010aagain.controller.student.ListStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListStudentServlet</servlet-name>
+        <url-pattern>/admin/students/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DetailStudentServlet</servlet-name>
+        <servlet-class>com.t2010a.hellot2010aagain.controller.student.DetailStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetailStudentServlet</servlet-name>
+        <url-pattern>/admin/students/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditStudentServlet</servlet-name>
+        <servlet-class>com.t2010a.hellot2010aagain.controller.student.EditStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditStudentServlet</servlet-name>
+        <url-pattern>/admin/students/edit</url-pattern>
+    </servlet-mapping>
 </web-app>

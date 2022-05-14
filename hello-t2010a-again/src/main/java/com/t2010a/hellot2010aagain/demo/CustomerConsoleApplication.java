@@ -1,9 +1,9 @@
 package com.t2010a.hellot2010aagain.demo;
 
 import com.t2010a.hellot2010aagain.entity.Customer;
-import com.t2010a.hellot2010aagain.model.InMemoryCustomerModel;
-import com.t2010a.hellot2010aagain.model.MySqlCustomerModel;
-import com.t2010a.hellot2010aagain.model.CustomerModel;
+import com.t2010a.hellot2010aagain.model.customer.InMemoryCustomerModel;
+import com.t2010a.hellot2010aagain.model.customer.MySqlCustomerModel;
+import com.t2010a.hellot2010aagain.model.customer.CustomerModel;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -131,7 +131,7 @@ public class CustomerConsoleApplication {
         System.out.println("Please enter image");
         String image = scanner.nextLine();
         Customer customer = new Customer(id, name, "019231233", "image-demo.png", LocalDateTime.of(2000, 10, 10, 10, 10));
-        if (customerModel.save(customer) != null) {
+        if (customerModel.create(customer) != null) {
             System.out.println("Create customer success!");
         } else {
             System.err.println("Save customer fails, please try again later!");
