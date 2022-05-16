@@ -19,6 +19,9 @@
     <title>Create new student</title>
 </head>
 <body>
+<jsp:include page="../includes/header.jsp">
+
+</jsp:include>
     <h1>Create student</h1>
     <a href="/admin/students/list">Back to list</a>
     <form action="<%=url%>" method="post">

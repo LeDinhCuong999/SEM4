@@ -14,6 +14,10 @@
     <title>Student detail</title>
 </head>
 <body>
+<jsp:include page="../includes/header.jsp">
+
+</jsp:include>
+
     <h1>Student detail</h1>
     <a href="/admin/students/list">Back to list</a> &nbsp;
     <a href="/admin/students/create">Create new student</a>

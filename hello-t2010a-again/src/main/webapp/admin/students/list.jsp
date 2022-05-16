@@ -15,6 +15,9 @@
     <title>List student</title>
 </head>
 <body>
+<jsp:include page="../includes/header.jsp">
+
+</jsp:include>
     <h1>List student</h1>
     <a href="/admin/students/create">Create new student</a>
     <ul>
