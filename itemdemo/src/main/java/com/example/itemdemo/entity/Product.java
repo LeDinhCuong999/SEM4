@@ -7,36 +7,39 @@ public class Product {
     private String name;
     private String price;
     private String thumbnail;
+    private String content;
+    private int qty;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private int status;
 
 
-    public Product(String id, String name, String price, String thumbnail, LocalDateTime createdAt, LocalDateTime updatedAt, int status) {
+    public Product(String id, String name, String price, String thumbnail, String content, int qty, LocalDateTime createdAt, LocalDateTime updatedAt, int status) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.thumbnail = thumbnail;
+        this.content = content;
+        this.qty = qty;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.status = status;
     }
 
-    public Product(String id, String name, String price, String thumbnail) {
+    public Product(String id, String name, String price, String thumbnail, String content, int qty) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.thumbnail = thumbnail;
+        this.content = content;
+        this.qty = qty;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
         this.status = 1;
     }
 
     public Product() {
-        this.id = "";
-        this.name = "";
-        this.price = "";
-        this.thumbnail = "";
+
     }
 
     @Override
@@ -46,6 +49,8 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", thumbnail='" + thumbnail + '\'' +
+                ", content='" + content + '\'' +
+                ", qty=" + qty +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", status=" + status +
@@ -82,6 +87,22 @@ public class Product {
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
     }
 
     public LocalDateTime getCreatedAt() {

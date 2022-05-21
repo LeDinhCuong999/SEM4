@@ -32,10 +32,12 @@ public class CreateProductServlet extends HttpServlet {
         // xu li validate va save
         String id = req.getParameter("id");
         String name = req.getParameter("name");
-        String price = req.getParameter("email");
+        String price = req.getParameter("price");
         String thumbnail = req.getParameter("thumbnail");
+        String content = req.getParameter("content");
+        int qty = Integer.parseInt(req.getParameter("qty"));
         System.out.println(name);
-        Product product = new Product(id, name, price, thumbnail);
+        Product product = new Product(id, name, price, thumbnail, content, qty);
         // validate du lieu
         if (productModel.save(product) != null) {
             resp.sendRedirect("/admin/products/list");

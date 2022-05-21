@@ -49,8 +49,10 @@ public class EditProductServlet extends HttpServlet {
             String name = req.getParameter("name");
             String price = req.getParameter("price");
             String thumbnail = req.getParameter("thumbnail");
+            String content = req.getParameter("content");
+            int qty = Integer.parseInt(req.getParameter("qty"));
             System.out.println(name);
-            Product product = new Product(id, name, price, thumbnail);
+            Product product = new Product(id, name, price, thumbnail, content, qty);
             // validate dữ liệu
             if (productModel.update(id, product) != null) {
                 resp.sendRedirect("/admin/products/list");
@@ -58,7 +60,7 @@ public class EditProductServlet extends HttpServlet {
                 // nếu có trả về trang form
                 req.setAttribute("product", product);
                 req.setAttribute("action", 2);
-                req.getRequestDispatcher("/admin/students/form.jsp").forward(req, resp);
+                req.getRequestDispatcher("/admin/products/form.jsp").forward(req, resp);
             }
         }
     }
