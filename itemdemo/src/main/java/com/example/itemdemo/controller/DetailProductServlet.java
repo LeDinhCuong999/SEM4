@@ -1,0 +1,39 @@
+package com.example.itemdemo.controller;
+
+import com.example.itemdemo.entity.Product;
+import com.example.itemdemo.model.MySqlProductModel;
+import com.example.itemdemo.model.ProductModel;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class DetailProductServlet extends HttpServlet {
+
+    private ProductModel productModel;
+
+    public DetailProductServlet() {
+        this.productModel = new MySqlProductModel();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // lấy tham số id
+        String id = req.getParameter("id");
+        // kiểm tra trong database xem có tồn tại không.
+        Product product = productModel.findById(id);
+        // nếu không trả về trang 404
+        if (product == null) {
+            req.setAttribute("message", "Product not found!");
+            req.getRequestDispatcher("/admin/errors/404.jsp").forward(req, resp);
+        } else {
+            // nếu có trả về trang detail
+            req.setAttribute("product", product);
+            req.getRequestDispatcher("/admin/products/detail.jsp").forward(req, resp);
+        }
+    }
+}

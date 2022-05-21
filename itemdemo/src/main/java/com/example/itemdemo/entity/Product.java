@@ -11,6 +11,7 @@ public class Product {
     private LocalDateTime updatedAt;
     private int status;
 
+
     public Product(String id, String name, String price, String thumbnail, LocalDateTime createdAt, LocalDateTime updatedAt, int status) {
         this.id = id;
         this.name = name;
@@ -36,6 +37,19 @@ public class Product {
         this.name = "";
         this.price = "";
         this.thumbnail = "";
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", status=" + status +
+                '}';
     }
 
     public String getId() {
