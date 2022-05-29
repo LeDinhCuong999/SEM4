@@ -26,7 +26,7 @@ public class DetailProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        req.setAttribute("title", "Detail Product");
+        req.setAttribute("title", "Single Product");
         Product product = productModel.findById(id);
         List<Category> category = categoryModel.findAll();
 

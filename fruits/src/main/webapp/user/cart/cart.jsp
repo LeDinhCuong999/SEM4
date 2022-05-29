@@ -28,7 +28,7 @@
         <div class="col-lg-8 offset-lg-2 text-center">
           <div class="breadcrumb-text">
             <p>Fresh and Organic</p>
-            <h1>Cart</h1>
+            <h1><%=request.getAttribute("title")%></h1>
           </div>
         </div>
       </div>
@@ -95,11 +95,19 @@
               </tbody>
             </table>
             <div class="cart-buttons">
-              <a href="cart" class="boxed-btn">Update Cart</a>
+              <a href="cart/show" class="boxed-btn">Update Cart</a>
               <a href="checkout" class="boxed-btn black">Check Out</a>
             </div>
           </div>
-
+          <div class="coupon-section">
+            <h3>Apply Coupon</h3>
+            <div class="coupon-form-wrap">
+              <form action="home">
+                <p><input type="text" placeholder="Coupon"></p>
+                <p><input type="submit" value="Apply"></p>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -141,7 +141,7 @@ public class ShoppingCart extends BaseEntity implements ShoppingCartAction {
             cartItems.put(Integer.valueOf(product.getId()), currentItem);
         } else {
             CartItem item = new CartItem();
-            item.setProductId(Integer.parseInt(product.getId()));
+            item.setProductId(product.getId());
             item.setProductName(product.getName());
             item.setProductThumbnail(product.getThumbnail());
             item.setUnitPrice(product.getPrice());

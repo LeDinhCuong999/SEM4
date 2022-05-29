@@ -1,17 +1,14 @@
 package com.t2010a.fruits.entity.cart;
 
-import com.t2010a.fruits.entity.myenum.CartItemStatus;
 import com.t2010a.fruits.entity.base.BaseEntity;
 public class CartItem extends BaseEntity{
 
     private int shoppingcartId;
-    private int productId; // san pham nao
+    private String productId; // san pham nao
     private String productName;
     private String productThumbnail;
     private double unitPrice; // gia tien bao nhieu
     private int quantity; // so luong
-
-    private CartItemStatus status;
 
     public CartItem() {
     }
@@ -20,17 +17,15 @@ public class CartItem extends BaseEntity{
         return shoppingcartId;
     }
 
-
     public void setShoppingcartId(int shoppingcartId) {
         this.shoppingcartId = shoppingcartId;
     }
 
-
-    public int getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
@@ -66,12 +61,4 @@ public class CartItem extends BaseEntity{
         this.quantity = quantity;
     }
 
-
-    public CartItemStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(CartItemStatus status) {
-        this.status = status;
-    }
 }

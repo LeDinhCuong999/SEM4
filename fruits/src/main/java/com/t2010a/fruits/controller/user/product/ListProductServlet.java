@@ -20,8 +20,9 @@ public class ListProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> products = productModel.findAll();
-        req.setAttribute("products", products);
+        List<Product> product = productModel.findAll();
+        req.setAttribute("product", product);
+        req.setAttribute("title","Shop");
         req.getRequestDispatcher("/user/product/product-list.jsp").forward(req, resp);
     }
 }

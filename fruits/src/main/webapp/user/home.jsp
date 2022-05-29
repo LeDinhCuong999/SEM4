@@ -1,4 +1,13 @@
+<%@ page import="com.t2010a.fruits.entity.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    List<Product> products = (List<Product>) request.getAttribute("product");
+    if (products == null){
+        products = new ArrayList<>();
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +28,8 @@
                         <p class="subtitle">Fresh & Organic</p>
                         <h1>Delicious Seasonal Fruits</h1>
                         <div class="hero-btns">
-                            <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-                            <a href="contact.html" class="bordered-btn">Contact Us</a>
+                            <a href="shop" class="boxed-btn">Fruit Collection</a>
+                            <a href="cart/show" class="bordered-btn">Shopping Cart</a>
                         </div>
                     </div>
                 </div>
@@ -81,42 +90,32 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title">
                     <h3><span class="orange-text">Our</span> Products</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+                    <p>It is often frustrating to attempt to plan meals that are designed
+                        for one. Despite this fact, we are seeing more and more recipe
+                        books and Internet websites that are dedicated to the act of
+                        cooking for one. Divorce and the death of spouses or grown
+                        children leaving for college are all reasons that someone
+                        accustomed to cooking for more than one would suddenly need to
+                        learn how to adjust all the cooking practices utilized before into
+                        a streamlined plan of cooking that is more efficient for one
+                        person creating less</p>
                 </div>
             </div>
         </div>
 
         <div class="row">
+            <%for (Product product:products){%>
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="single-product.html"><img src="user/resources/img/products/product-img-1.jpg" alt=""></a>
+                        <a href="/single-product?id=<%=product.getId()%>"><img src="<%=product.getThumbnail()%>" alt=""></a>
                     </div>
-                    <h3>Strawberry</h3>
-                    <p class="product-price"><span>Per Kg</span> 85$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <h3><%=product.getName()%></h3>
+                    <p class="product-price"><span>Per Kg</span> <%=product.getPrice()%> VND</p>
+                    <a href="/cart/add?productId=<%=product.getId()%>&quantity=1" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="single-product.html"><img src="user/resources/img/products/product-img-2.jpg" alt=""></a>
-                    </div>
-                    <h3>Berry</h3>
-                    <p class="product-price"><span>Per Kg</span> 70$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="single-product.html"><img src="user/resources/img/products/product-img-3.jpg" alt=""></a>
-                    </div>
-                    <h3>Lemon</h3>
-                    <p class="product-price"><span>Per Kg</span> 35$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                </div>
-            </div>
+            <%}%>
         </div>
     </div>
 </div>
@@ -128,7 +127,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="abt-bg">
-                    <a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
+                    <a href="https://www.youtube.com/watch?v=LRWG-eI8taY" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
@@ -137,7 +136,7 @@
                     <h2>We are <span class="orange-text">Fruitkha</span></h2>
                     <p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-                    <a href="about.html" class="boxed-btn mt-4">know more</a>
+                    <a href="" class="boxed-btn mt-4">know more</a>
                 </div>
             </div>
         </div>

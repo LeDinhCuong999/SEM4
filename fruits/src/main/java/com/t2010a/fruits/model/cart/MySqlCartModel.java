@@ -29,7 +29,7 @@ public class MySqlCartModel implements CheckoutModel {
             preparedStatement.setString(5,shoppingCart.getShipNote());
             preparedStatement.setDouble(6,shoppingCart.getTotalPrice());
             preparedStatement.setString(7, LocalDateTime.now().toString());
-            preparedStatement.setInt(8, ShoppingCartStatus.ACTIVE.getValue());
+            preparedStatement.setInt(8, ShoppingCartStatus.UNAPPROVED.getValue());
             System.out.println("Connection success!");
             preparedStatement.execute();
             return shoppingCart;
@@ -111,5 +111,22 @@ public class MySqlCartModel implements CheckoutModel {
             e.printStackTrace();
         }
         return shoppingCart;
+    }
+
+    @Override
+    public boolean browse(int id) {
+        try {
+            Connection connection = ConnectionHelper.getConnection();
+            String sqlQuery = "update shoppingcart " +
+                    "set status = ? where id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setInt(1, ShoppingCartStatus.APPROVED.getValue());
+            preparedStatement.setInt(2,id);
+            System.out.println("Connection success!");
+            preparedStatement.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }

@@ -32,4 +32,24 @@ class MySqlProductModelTest {
     @Test
     void delete() {
     }
+
+    @Test
+    void testSave() {
+    }
+
+    @Test
+    void testFindAll() {
+    }
+
+    @Test
+    void testFindById() {
+    }
+
+    @Test
+    void testUpdate() {
+    }
+
+    @Test
+    void testDelete() {
+    }
 }

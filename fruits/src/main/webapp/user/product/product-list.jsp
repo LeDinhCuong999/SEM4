@@ -1,11 +1,16 @@
 <%@ page import="com.t2010a.fruits.entity.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.t2010a.fruits.entity.Category" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<Product> products = (List<Product>) request.getAttribute("product");
+    List<Category> categories = (List<Category>) request.getAttribute("category");
     if (products == null){
         products = new ArrayList<>();
+    }
+    if (categories == null){
+        categories = new ArrayList<>();
     }
 %>
 <!DOCTYPE html>
@@ -25,7 +30,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
                     <p>Fresh and Organic</p>
-                    <h1>Shop</h1>
+                    <h1><%=request.getAttribute("title")%></h1>
                 </div>
             </div>
         </div>
@@ -57,7 +62,7 @@
                 <div class="col-lg-4 col-md-6 text-center ">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="product-detail.jsp"><img src="<%=product.getThumbnail()%>" alt=""></a>
+                            <a href="/single-product?id=<%=product.getId()%>"><img src="<%=product.getThumbnail()%>" alt=""></a>
                         </div>
                         <h3><%=product.getName()%></h3>
                         <p class="product-price"><span>Per Kg</span> <%=product.getPrice()%>VND </p>
